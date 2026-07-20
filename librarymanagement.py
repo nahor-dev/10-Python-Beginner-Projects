@@ -1,11 +1,11 @@
 
 books = {
-    # "Atomic Habits": {
-    #     "author": "James Clear",
-    #     "year": 2018,
-    #     "available": True,
-    #     "borrowed_by": None
-    # },
+    "Atomic Habits": {
+        "author": "James Clear",
+        "year": 2018,
+        "available": True,
+        "borrowed_by": None
+    },
 }
 members  = {
     # "Nahor": {
@@ -14,13 +14,16 @@ members  = {
 }
 
 def view_book():
-    for book, descriptions in books.items():
-        print(book)
-        print()
-        for key,value in descriptions.items():
-            print(f'{key}:{value}')
+    if not books:
+        print('No books found.')
+    else:
+        for i,(book, descriptions )in enumerate(books.items(), 1):
+            print(f'{i}. {book}')
             print()
-    
+            for key,value in descriptions.items():
+                print(f'{key}:{value}')
+                print()
+        
         
 def add_book():
     current_year = 2026
