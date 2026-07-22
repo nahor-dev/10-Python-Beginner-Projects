@@ -1,4 +1,3 @@
-
 books = {
     "Atomic Habits": {
         "author": "James Clear",
@@ -8,9 +7,15 @@ books = {
     }
 }
 members  = {
-    
+     "john": {
+        "phone": "0912345678",
+        "borrowed_books": [
+            "Atomic Habits",
+            "Clean Code"
+        ]
+    }
 }
-print(members)
+# print(members)
 
 def view_book():
     if not books:
@@ -94,8 +99,6 @@ def register_member():
         else:
             print('phone number only contain numbers data type')
             return
-    
-        
   
 def view_members():
     if not members:
@@ -106,27 +109,25 @@ def view_members():
         print(f'{i}. {name}')
         print(f'phone : {properties['phone']}')
         print(f'Borrowed_books : {len(properties['borrowed_books'])}')
-        print()
-        
-           
+        print()   
+
+
+def borrow_book():
+    borrower_name = input('Enter your name: ').lower().strip()
+    for name in members:
+        if not borrower_name in name.lower():
+            print('Member not found.')
+            return
     
+    wanted_book = input('Enter book title or author:  ').lower().strip()
+    for book in books:
+        if not wanted_book in book.lower():
+            print('Book not found.')
+            return
+
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 def main():
     while True:
         print('==============================\nLIBRARY MANAGEMENT SYSTEM\n==============================\n1. View Books \n2. Add Book\n3. Remove Book\n4. Search Book\n5. Register Member\n6. Borrow Book\n7. Return Book\n8. View Members\n9. View Borrowed Books\n10. Library Statistics\n11. Exit')
@@ -144,9 +145,13 @@ def main():
             search_book()
         elif options ==5:
             register_member()
+        elif options ==6:
+            borrow_book()
         elif options ==8:
             view_members()
         elif options == 11:
             print('thank you')
-            break    
-main()
+            break  
+        
+if __name__ =="__main__":
+    main()
