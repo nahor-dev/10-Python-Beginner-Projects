@@ -125,8 +125,14 @@ def borrow_book():
             print('Book not found.')
             return
 
-    
-
+def return_book():
+    pass
+def remove_book():
+    pass
+def view_borrowed_books():
+    pass
+def library_statistics():
+    pass
 
 def main():
     while True:
@@ -141,14 +147,22 @@ def main():
             view_book()
         elif options ==2:
             add_book()
+        elif options ==3:
+            remove_book()
         elif options ==4:
             search_book()
         elif options ==5:
             register_member()
         elif options ==6:
             borrow_book()
+        elif options==7:
+            return_book()
         elif options ==8:
             view_members()
+        elif options==9:
+            view_borrowed_books()
+        elif options==10:
+            library_statistics()
         elif options == 11:
             print('thank you')
             break  
