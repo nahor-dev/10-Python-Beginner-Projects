@@ -110,18 +110,18 @@ python main.py
 
 | Project                   | Status |
 | ------------------------- | :----: |
-| Number Guessing Game      |    ⬜   |
-| Password Generator        |    ⬜   |
-| Quiz Game                 |    ⬜   |
-| To-Do List                |    ⬜   |
-| Contact Book              |    ⬜   |
-| Student Grade Manager     |    ⬜   |
-| Banking System            |    ⬜   |
+| Number Guessing Game      |    ✅   |
+| Password Generator        |    ✅   |
+| Quiz Game                 |    ✅   |
+| To-Do List                |    ✅   |
+| Contact Book              |    ✅   |
+| Student Grade Manager     |    ✅   |
+| Banking System            |    ✅   |
 | Library Management System |    ⬜   |
 | Expense Tracker           |    ⬜   |
 | Tic-Tac-Toe               |    ⬜   |
 
-> Update each project to **✅** as you complete it.
+
 
 ---
 
