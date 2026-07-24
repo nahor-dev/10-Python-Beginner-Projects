@@ -2,12 +2,12 @@ books = {
     "Atomic Habits": {
         "author": "James Clear",
         "year": 2018,
-        "available": False,
+        "available": True,
         "borrowed_by": 'nahor'
     }
 }
 members  = {
-     "john": {
+     "John": {
         "phone": "0912345678",
         "borrowed_books": [
             "Atomic Habits",
@@ -113,20 +113,47 @@ def view_members():
 
 
 def borrow_book():
-    borrower_name = input('Enter your name: ').lower().strip()
-    for name in members:
-        if not borrower_name in name.lower():
+    borrower_name = input('Enter your name: ').title().strip()
+    if borrower_name not in members:
             print('Member not found.')
             return
     
-    wanted_book = input('Enter book title or author:  ').lower().strip()
-    for book in books:
-        if not wanted_book in book.lower():
+    wanted_book = input('Enter book title:  ').title().strip()
+    if wanted_book not in books:
             print('Book not found.')
             return
 
+    if not books[wanted_book]['available']:
+            print(f'This book is already borrowed by {books[wanted_book]['borrowed_by']}.')
+            return
+    books[wanted_book]['available'] = False
+    books[wanted_book]['borrowed_by'] = borrower_name
+    members[borrower_name]['borrowed_books'].append(wanted_book)
+    
 def return_book():
-    pass
+    borrower_name = input('Enter your name: ').title().strip()
+    if borrower_name not in members:
+            print('Member not found.')
+            return
+    wanted_book = input('Enter book title:  ').title().strip()
+    if wanted_book not in books:
+            print('Book not found.')
+            return
+        
+    if books[wanted_book]['available']:
+            print(f'This book was not borrowed.')
+            return
+        
+    if books[wanted_book]["borrowed_by"] != borrower_name:
+        print(f"This book was borrowed by {books[wanted_book]['borrowed_by']}, not {borrower_name}.")
+        return
+    books[wanted_book]['available'] = True
+    books[wanted_book]['borrowed_by'] = None
+    members[borrower_name]['borrowed_books'].remove(wanted_book)
+    print("Book returned successfully!")
+    
+    
+    
 def remove_book():
     pass
 def view_borrowed_books():
