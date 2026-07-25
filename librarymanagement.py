@@ -1,20 +1,15 @@
+import json
+
+
 books = {
-    "Atomic Habits": {
+     "Atomic Habits": {
         "author": "James Clear",
         "year": 2018,
         "available": True,
-        "borrowed_by": 'nahor'
-    }
+        "borrowed_by": None
+    },
 }
-members  = {
-     "John": {
-        "phone": "0912345678",
-        "borrowed_books": [
-            "Atomic Habits",
-            "Clean Code"
-        ]
-    }
-}
+members  = {}
 # print(members)
 
 def view_book():
@@ -155,11 +150,52 @@ def return_book():
     
     
 def remove_book():
-    pass
+    book_title = input('Book title: ').title().strip()
+    if not book_title in books:
+        print('the book does not exist')
+    if not books[book_title]['available']:
+        print('the book is currently borrowed')
+    del books[book_title]
+    print('deleted successfully')
+
+
 def view_borrowed_books():
-    pass
+    for i,(book, descriptions )in enumerate(books.items(), 1):
+        if not descriptions['available']:
+            print(f'{i}. {book}')
+            print(f'borrowed_by: {descriptions['borrowed_by']}')
+        else:
+            print('there is no book borrowed')
+            return
+  
+  
+  
+def save_books():
+    with open("books.json", "w") as file:
+        json.dump(books, file,indent=4)          
+save_books()        
 def library_statistics():
-    pass
+    print('===== Library Statistics =====\n')
+    book_len = len(books)
+    print(f'Total Books: {book_len}')
+    book_len_avl = 0
+    for book,descriptions in books.items():
+        
+        if descriptions['available']:
+            
+            book_len_avl+=1
+    print(f"Available Books: {book_len_avl}")
+    book_len_bor = 0
+    for book,descriptions in books.items():
+        
+        if not descriptions['available']:
+            
+            book_len_bor+=1
+    print(f"Borrowed Books: {book_len_bor}")
+    member_len = len(members)
+    print(f'Total Books: {member_len}')
+    
+
 
 def main():
     while True:
