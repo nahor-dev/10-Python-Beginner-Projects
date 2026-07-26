@@ -117,7 +117,7 @@ python main.py
 | Contact Book              |    ✅   |
 | Student Grade Manager     |    ✅   |
 | Banking System            |    ✅   |
-| Library Management System |    ⬜   |
+| Library Management System |    ✅   |
 | Expense Tracker           |    ⬜   |
 | Tic-Tac-Toe               |    ⬜   |
 
