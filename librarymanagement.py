@@ -1,16 +1,11 @@
 import json
 
 
-books = {
-     "Atomic Habits": {
-        "author": "James Clear",
-        "year": 2018,
-        "available": True,
-        "borrowed_by": None
-    },
-}
+books = {}
+    
 members  = {}
-# print(members)
+
+
 
 def view_book():
     if not books:
@@ -167,13 +162,7 @@ def view_borrowed_books():
         else:
             print('there is no book borrowed')
             return
-  
-  
-  
-def save_books():
-    with open("books.json", "w") as file:
-        json.dump(books, file,indent=4)          
-save_books()        
+
 def library_statistics():
     print('===== Library Statistics =====\n')
     book_len = len(books)
@@ -194,10 +183,42 @@ def library_statistics():
     print(f"Borrowed Books: {book_len_bor}")
     member_len = len(members)
     print(f'Total Books: {member_len}')
-    
+
+def save_members():
+    with open('members.json', 'w') as file:
+        json.dump(members, file, indent=4)
+
+
+def load_members():
+    global members
+    try:
+        with open('members.json', 'r') as file:
+            
+            members = json.load(file)
+    except FileNotFoundError:
+        members = {}
+  
+def save_books():
+    with open("books.json", "w") as file:
+        json.dump(books, file,indent=4)          
+
+def load_books():
+    global books
+
+    try:
+        with open("books.json", "r") as file:
+            books = json.load(file)
+
+    except FileNotFoundError:
+        books = {}
+   
+
 
 
 def main():
+    load_books()
+    load_members()
+    
     while True:
         print('==============================\nLIBRARY MANAGEMENT SYSTEM\n==============================\n1. View Books \n2. Add Book\n3. Remove Book\n4. Search Book\n5. Register Member\n6. Borrow Book\n7. Return Book\n8. View Members\n9. View Borrowed Books\n10. Library Statistics\n11. Exit')
         try:
@@ -208,18 +229,28 @@ def main():
         
         if options ==1:
             view_book()
+            
+            
         elif options ==2:
             add_book()
+            save_books()
+            
         elif options ==3:
             remove_book()
+            save_books()
         elif options ==4:
             search_book()
         elif options ==5:
             register_member()
+            save_members()
         elif options ==6:
             borrow_book()
+            save_books()
+            save_members()
         elif options==7:
             return_book()
+            save_books()
+            save_members()
         elif options ==8:
             view_members()
         elif options==9:
@@ -228,7 +259,11 @@ def main():
             library_statistics()
         elif options == 11:
             print('thank you')
-            break  
+            return  
         
+        
+        
+
+       
 if __name__ =="__main__":
     main()

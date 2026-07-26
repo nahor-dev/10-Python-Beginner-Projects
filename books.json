@@ -1,7 +1,19 @@
 {
     "Atomic Habits": {
-        "author": "James Clear",
+        "author": "james clear",
         "year": 2018,
+        "available": true,
+        "borrowed_by": null
+    },
+    "Clean Code": {
+        "author": "robert martin",
+        "year": 2008,
+        "available": true,
+        "borrowed_by": null
+    },
+    "Python Crash Cource": {
+        "author": "eric mattew",
+        "year": 2023,
         "available": true,
         "borrowed_by": null
     }
