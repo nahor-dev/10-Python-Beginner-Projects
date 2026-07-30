@@ -1,0 +1,272 @@
+
+=========================================================
+                EXPENSE TRACKER (OOP PROJECT)
+=========================================================
+
+GOAL:
+Build a terminal-based Expense Tracker using Object-Oriented Programming (OOP).
+The program should allow users to record/add, view, search, delete, and analyze expenses.
+Store data permanently using JSON.
+
+
+
+Food
+
+Transport
+
+Entertainment
+
+Shopping
+
+Bills
+
+Education
+
+Health
+
+Other
+
+
+
+---------------------------------------------------------
+CLASSES
+---------------------------------------------------------
+
+1. Expense
+Represents ONE expense.
+
+Attributes:
+- title
+- amount
+- category
+- date
+
+Methods:
+- __init__()
+
+---------------------------------------------------------
+
+2. ExpenseTracker
+Manages ALL expenses.
+
+Attribute:
+- expenses (list of Expense objects)
+
+Methods:
+- add_expense()
+- view_expenses()
+- search_expense()
+- edit_expense()
+- delete_expense()
+- total_expenses()
+- highest_expense()
+- lowest_expense()
+- category_summary()
+- save_data()
+- load_data()
+
+---------------------------------------------------------
+MENU
+---------------------------------------------------------
+
+1. View Expenses
+2. Add Expense
+3. Search Expense
+4. Edit Expense
+5. Delete Expense
+6. Total Expenses
+7. Highest Expense
+8. Lowest Expense
+9. Category Summary
+10. Exit
+
+---------------------------------------------------------
+ADD EXPENSE
+---------------------------------------------------------
+
+Ask for:
+- Title
+- Amount
+- Category
+- Date
+
+Validation:
+- Title cannot be empty.
+- Amount must be a positive number.
+- Category cannot be empty.
+- Date cannot be empty.
+
+Create an Expense object.
+
+Append it to expenses list.
+
+Save JSON automatically.
+
+---------------------------------------------------------
+VIEW EXPENSES
+---------------------------------------------------------
+
+If there are no expenses:
+
+"No expenses found."
+
+Otherwise show:
+
+1.
+Title:
+Amount:
+Category:
+Date:
+
+Repeat for every expense.
+
+---------------------------------------------------------
+SEARCH EXPENSE
+---------------------------------------------------------
+
+Search by title.
+
+Search should NOT be case-sensitive.
+
+If found:
+
+Display the complete expense information.
+
+If not:
+
+"Expense not found."
+
+---------------------------------------------------------
+EDIT EXPENSE
+---------------------------------------------------------
+
+Search by title.
+
+If found:
+
+Allow user to update:
+
+- title
+- amount
+- category
+- date
+
+Save automatically.
+
+---------------------------------------------------------
+DELETE EXPENSE
+---------------------------------------------------------
+
+Search by title.
+
+Delete the expense.
+
+Save automatically.
+
+---------------------------------------------------------
+TOTAL EXPENSES
+---------------------------------------------------------
+
+Calculate:
+
+Sum of all expense amounts.
+
+Example:
+
+Total Expenses: $235.50
+
+---------------------------------------------------------
+HIGHEST EXPENSE
+---------------------------------------------------------
+
+Find the expense with the largest amount.
+
+Display all information.
+
+---------------------------------------------------------
+LOWEST EXPENSE
+---------------------------------------------------------
+
+Find the expense with the smallest amount.
+
+Display all information.
+
+---------------------------------------------------------
+CATEGORY SUMMARY
+---------------------------------------------------------
+
+Calculate total spent for each category.
+
+Example:
+
+Food: $120
+Transport: $40
+Shopping: $210
+Bills: $90
+
+---------------------------------------------------------
+JSON
+---------------------------------------------------------
+
+expenses.json
+
+Program starts:
+- Load JSON automatically.
+
+Whenever data changes:
+- Save JSON automatically.
+
+If JSON doesn't exist:
+- Start with an empty expenses list.
+
+---------------------------------------------------------
+INPUT VALIDATION
+---------------------------------------------------------
+
+Handle:
+
+- Invalid menu choice
+- Empty strings
+- Negative amount
+- Non-numeric amount
+- Searching for missing expense
+- Editing missing expense
+- Deleting missing expense
+
+Never let the program crash.
+
+---------------------------------------------------------
+PYTHON CONCEPTS TO PRACTICE
+---------------------------------------------------------
+
+✓ Classes
+✓ Objects
+✓ __init__
+✓ Instance attributes
+✓ Methods
+✓ Lists
+✓ List of objects
+✓ for loops
+✓ if / elif / else
+✓ try / except
+✓ JSON
+✓ File handling
+✓ Searching
+✓ Updating objects
+✓ Deleting objects
+✓ Built-in functions (sum, max, min)
+✓ String methods
+✓ Program organization
+
+=========================================================
+PROJECT GOAL
+
+Write EVERYTHING yourself.
+
+Search documentation if needed.
+
+Do NOT copy solutions.
+
+Treat this exactly like the Library Management System:
+build one method at a time, test it, then move to the next.
+=========================================================
