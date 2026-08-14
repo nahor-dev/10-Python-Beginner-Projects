@@ -118,7 +118,7 @@ python main.py
 | Student Grade Manager     |    ✅   |
 | Banking System            |    ✅   |
 | Library Management System |    ✅   |
-| Expense Tracker           |    ⬜   |
+| Expense Tracker           |    ✅   |
 | Tic-Tac-Toe               |    ⬜   |
 
 
